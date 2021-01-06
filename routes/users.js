@@ -27,6 +27,7 @@ router.post("/validateuser", async (req, res) => {
    let userrecord = await User.find(
         { email: req.body.email },
      )
+     console.log("bpody",req.body)
     console.log(userrecord, req.body.email, req.body.password)
     if((userrecord[0].email === req.body.email) && (userrecord[0].password === req.body.password) ){
         res.json({message: "user exist"});
@@ -36,7 +37,7 @@ router.post("/validateuser", async (req, res) => {
      }
     }
     catch{
-        console.log(err)
+        console.log("err")
     }
   });
 

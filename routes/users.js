@@ -13,7 +13,6 @@ router.post("/adduser", (req, res) => {
     .save()
     .then(user => {
       res.status(200).send("success");
-      //console.log(user);
     })
     .catch(err => {
       res.status(400).send("Failed");
@@ -27,7 +26,6 @@ router.post("/validateuser", async (req, res) => {
    let userrecord = await User.find(
         { email: req.body.email },
      )
-     console.log("bpody",req.body)
     console.log(userrecord, req.body.email, req.body.password)
     if((userrecord[0].email === req.body.email) && (userrecord[0].password === req.body.password) ){
         res.json({message: "user exist"});
